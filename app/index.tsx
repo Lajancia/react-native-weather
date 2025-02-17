@@ -1,16 +1,19 @@
 import { Text, View, StyleSheet } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './components/Home';
+
+const Stack = createNativeStackNavigator();
 
 export default function Index() {
 	return (
-		<View style={styles.container}>
-			<Text>Edit app/index.tsx to edit this screen.</Text>
-		</View>
+		<Stack.Navigator initialRouteName="Home">
+			<Stack.Screen
+				name="Home"
+				component={Home}
+				options={{
+					headerShown: false,
+				}}
+			/>
+		</Stack.Navigator>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: 'tomato',
-	},
-});
